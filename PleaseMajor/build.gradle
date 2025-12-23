@@ -24,11 +24,18 @@ repositories {
     mavenCentral()
 }
 
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.ai:spring-ai-bom:2.0.0-M1"
+    }
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
@@ -37,6 +44,42 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-thymeleaf-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // swagger
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.3'
+
+    // json
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // Redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    // webFlux
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    // netty
+    implementation 'io.netty:netty-resolver-dns-native-macos:4.1.68.Final:osx-aarch_64'
+
+
+    // PostgreSQL
+    implementation 'org.hibernate:hibernate-spatial:6.6.4.Final'
+    runtimeOnly 'org.postgresql:postgresql'
+
+    //ai
+    implementation 'org.springframework.ai:spring-ai-starter-model-openai'
+
+    // WebSocket
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+    // csv
+    implementation 'org.apache.commons:commons-csv:1.10.0'
+
+    // JAVA 시간 처리
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+
+
+
 }
 
 tasks.named('test') {
