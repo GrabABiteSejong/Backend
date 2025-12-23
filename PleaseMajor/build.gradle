@@ -77,6 +77,9 @@ dependencies {
     // JAVA 시간 처리
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 
+    // excel
+    implementation 'org.apache.poi:poi-ooxml:5.2.5'
+
 
 
 

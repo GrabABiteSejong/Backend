@@ -21,17 +21,17 @@ public class ChatStateService {
     this.redis = redis;
   }
 
-  public SessionState load(String sessionId) {
+  public TrackSessionState load(String sessionId) {
     String json = redis.opsForValue().get(key(sessionId));
-    if (json == null || json.isBlank()) return new SessionState();
+    if (json == null || json.isBlank()) return new TrackSessionState();
     try {
-      return om.readValue(json, SessionState.class);
+      return om.readValue(json, TrackSessionState.class);
     } catch (Exception e) {
-      return new SessionState();
+      return new TrackSessionState();
     }
   }
 
-  public void save(String sessionId, SessionState state) {
+  public void save(String sessionId, TrackSessionState state) {
     try {
       String json = om.writeValueAsString(state);
       redis.opsForValue().set(key(sessionId), json, TTL);

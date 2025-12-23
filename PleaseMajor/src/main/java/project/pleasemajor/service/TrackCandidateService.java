@@ -7,13 +7,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import project.pleasemajor.repository.domain.DepartmentRef;
 import project.pleasemajor.repository.domain.DeptDoc;
 import project.pleasemajor.repository.domain.DeptIndex;
 import project.pleasemajor.repository.domain.TrackScore;
 
+/**
+ * 계열 후보군 선정기
+ * */
 @Service
 public class TrackCandidateService {
   private final DeptIndex index;
@@ -21,10 +23,12 @@ public class TrackCandidateService {
 
   // 가중치(키워드 최우선)
   private static final double W_KEYWORD = 5.0;
+  // 과목명
   private static final double W_NAME = 3.0;
+  // 선수과목
   private static final double W_PREREQ = 2.0;
+  // 이수구분
   private static final double W_CATEGORY = 1.0;
-
   // 계열 내 “상위 학과 몇 개”로 평균낼지
   private static final int TOP_DEPTS_PER_TRACK = 5;
 

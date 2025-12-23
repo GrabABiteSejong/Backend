@@ -12,6 +12,9 @@ import project.pleasemajor.repository.domain.DepartmentRef;
 import project.pleasemajor.repository.domain.DeptDoc;
 import project.pleasemajor.repository.domain.DeptIndex;
 
+/**
+ * 학과 색인 구축기
+ * */
 @Component
 public class DeptIndexBuilder {
   private final CurriculumRepository repo;
